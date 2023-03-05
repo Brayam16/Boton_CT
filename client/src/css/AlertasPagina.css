@@ -1,0 +1,55 @@
+
+
+.titulos{
+    width: 900px;
+}
+.contenedo{
+    width: 80%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 90px;
+    
+}
+
+.nombreU{
+    width: 300px;
+}
+
+.tA{
+    position: absolute;
+    top: 0;
+}
+
+
+
+.nameL{
+    width: 370px;
+}
+
+.nuA{
+    width: 124px;
+}
+
+.usus{
+    width: 375px;
+}
+
+.esta{
+    width: 124px;
+}
+
+.btn{
+    width: 95px;
+}
+
+.icon ul{
+    display: flex;
+    list-style: none;
+    gap: 90px;
+    position: absolute;
+    top: 40px;
+    right: 130px;
+    
+}

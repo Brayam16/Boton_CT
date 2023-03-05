@@ -1,0 +1,96 @@
+.alerUl{
+    display: flex;
+    margin-top: 10px;
+}
+
+
+
+.contenedor{
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    top: 90px;
+    width: 80%;
+}
+
+.conte{
+    width: 100%;
+    height: 37px;
+}
+
+
+.name{
+    width: 30%;
+    border-radius: 5px 0 0 5px;
+}
+
+.nu{
+    width: 10%;
+}
+
+.ususL{
+    width: 30%;
+}
+
+.estaL{
+    width: 10%;
+    
+    border-radius: 0 5px 5px 0;
+}
+
+.estaC{
+    width: 10%;
+    
+}
+.btnM{
+    background: #FFF0D8;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.BtnContinuar{
+    position: absolute;
+    bottom: 10px;
+   right: 10px;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 1px solid #FFB15D;
+    background: #FFB15D;
+}
+
+.lista{
+    width: 800px;
+    border-color: #000;
+    background: #FFE5BA;
+
+}
+
+td{
+    text-align: center;
+}
+
+.btnL{
+    background: #FFF0D8;
+    width: 10%;
+    padding-left: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.btnL button{
+    width: 80px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    background: #FFB15D;
+
+}
+
+.modal{
+    position: absolute;
+    width: 100px;
+    display: none;
+    z-index: 1;
+}
