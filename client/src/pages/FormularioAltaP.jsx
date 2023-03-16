@@ -3,31 +3,23 @@ import { Form, Formik } from 'formik'
 import { useTasks } from '../context/Consultas';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import Menu4 from './Menu4';
-import '../css/FormularioAlta.css'
-
-
+import Menu2 from './Menu2';
+import '../css/FormularioAlta.css';
 function FormularioAlta() {
-    const { createUser, users } = useTasks();
+    const { createPolicia, tasks } = useTasks();
     const [user] = useState({
-        nombre: "",
-        nacimiento: "",
-        CURP: "",
-        correo: "",
-        contraseña: "",
-        apellidos: "",
-        edad: "",
-        numero: "",
-        telefono: "",
-        repetiContraseña: "",
-        tipo: "",
+        NombresPo: "",
+        ApellidosPo:"",
+        EdadPo: "",
+        TelefonoPo: "",
+        PasswordPo: "",
+        CorreoPo:"",
+        CurpPo: "",
+        TurnoPo: "",
+        Numero_Patrulla: "",
     })
     const params = useParams();
     const navigate = useNavigate();
-
-
-
-
     return (
         <div className="contenedorR">
             <Formik
@@ -36,7 +28,7 @@ function FormularioAlta() {
                 onSubmit={async (values, actions) => {
                     console.log(values);
 
-                    await createUser(values);
+                    await createPolicia(values);
                     actions.resetForm();
                     navigate("/usuarios")
 
@@ -54,49 +46,44 @@ function FormularioAlta() {
 
                                 <div className="lu">
                                     <label className="nomm">Nombre(s)</label>
-                                    <input type="text" name="nombre" autoComplete='off'
+                                    <input type="text" name="NombresPo" autoComplete='off'
                                         onChange={handleChange}
-                                        value={values.nombre}
+                                        value={values.NombresPo}
                                     />
                                 </div>
                                 <div className="lu">
-                                    <label className="nomm">Fecha de Nacimiento</label>
-                                    <input type="date" name="nacimiento" autoComplete='off'
+                                    <label className="nomm">Apellidos</label>
+                                    <input type="text" name="ApellidosPo" autoComplete='off'
                                         onChange={handleChange}
-                                        value={values.nacimiento}
+                                        value={values.ApellidosPo}
                                     />
                                 </div>
 
                                 <div className="lu">
                                     <label className="nomm">Edad</label>
-                                    <input type="number" name="edad" autoComplete='off'
+                                    <input type="number" name="EdadPo" autoComplete='off'
                                         onChange={handleChange}
-                                        value={values.edad}
+                                        value={values.EdadPo}
                                     />
                                 </div>
 
                                 <div className="lu">
-                                    <label className="nomm">CURP</label>
-                                    <input type="text" name="CURP" autoComplete='off'
+                                    <label className="nomm">Telefono</label>
+                                    <input type="text" name="TelefonoPo" autoComplete='off'
                                         onChange={handleChange}
-                                        value={values.CURP}
+                                        value={values.TelefonoPo}
                                     />
                                 </div>
                                 <div className="lu">
-                                    <label className="nomm">Correo Electrónico</label>
-                                    <input type="email" name="correo" autoComplete='off'
+                                    <label className="nomm">Contraseña</label>
+                                    <input type="text" name="PasswordPo" autoComplete='off'
                                         onChange={handleChange}
-                                        value={values.correo}
+                                        value={values.PasswordPo}
                                     />
                                 </div>
+                                
 
-                                <div className="lu">
-                                    <label className="nomm">Teléfono</label>
-                                    <input type="number" name="telefono" autoComplete='off'
-                                        onChange={handleChange}
-                                        value={values.telefono}
-                                    />
-                                </div>
+                               
 
                                 
                             </div>
@@ -105,48 +92,36 @@ function FormularioAlta() {
 
 
                                 <div className="lu">
-                                    <label className="nomm">Apellidos</label>
-                                    <input type="text" name="apellidos" autoComplete='off'
+                                    <label className="nomm">Correo</label>
+                                    <input type="text" name="CorreoPo" autoComplete='off'
                                         onChange={handleChange}
-                                        value={values.apellidos}
+                                        value={values.CorreoPo}
                                     />
                                 </div>
-
-                                <div className="lue">
-                                    <label className='nomm'>Puesto</label>
-                                    <select type="selection" name="tipo" 
-                                        onChange={handleChange}
-                                        value={values.tipo} >
-                                        <option value="#"></option>
-                                        <option value="policia">Policía</option>
-                                        <option value="paramedico">Paramedico</option>
-                                    </select>
-                                </div>
-
-                               
                                 <div className="lu">
-                                    <label className="nomm">Numero de unidad</label>
-                                    <input type="number" name="numero" autoComplete='off'
+                                    <label className="nomm">Curp</label>
+                                    <input type="text" name="CurpPo" autoComplete='off'
                                         onChange={handleChange}
-                                        value={values.numero}
+                                        value={values.CurpPo}
+                                    />
+                                </div>
+                                <div className="lu">
+                                    <label className="nomm">Turno</label>
+                                    <input type="text" name="TurnoPo" autoComplete='off'
+                                        onChange={handleChange}
+                                        value={values.TurnoPo}
                                     />
                                 </div>
 
                                 <div className="lu">
-                                    <label className="nomm">Contraseña</label>
-                                    <input type="password" name="contraseña" autoComplete='off'
+                                    <label className="nomm">Numero de Patrulla</label>
+                                    <input type="password" name="Numero_Patrulla" autoComplete='off'
                                         onChange={handleChange}
-                                        value={values.contraseña}
+                                        value={values.Numero_Patrulla}
                                     />
                                 </div>
                                
-                                <div className="lu">
-                                    <label className="nomm">Repetir Contraseña</label>
-                                    <input type="password" name="repetiContraseña" autoComplete='off'
-                                        onChange={handleChange}
-                                        value={values.repetiContraseña}
-                                    />
-                                </div>
+                               
                             </div>
 
 
@@ -157,7 +132,7 @@ function FormularioAlta() {
                             
                             
                         </div>
-                        <Menu4></Menu4>
+                        <Menu2></Menu2>
                         
                     </Form>
                 )}

@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router , Route,Routes,Link, NavLink } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import '../css/Menu.css';
-import Mapa from './mapa';
+
 
 
 
@@ -38,6 +38,9 @@ class Menu extends React.Component {
           <ul className='listaul1'>
             <li >
             <Link className='an' to="/menu">Inicio</Link>
+            </li>
+            <li>
+                <Link className='an' to="/establecimientos">Establecimientos</Link>
             </li>
             <li >
             <Link  className='an'to="/alerta">Alerta</Link> 

@@ -196,12 +196,15 @@ function ListaDeUsuarios({ task, user }) {
       <table className="conte">
         <tbody>
           <tr className="lista">
-            <td className="Id">{task.id_Usuario}</td>
-            <td className="name">{task.NombreU}</td>
-            <td className="name">{task.ApellidosU}</td>
-            <td className="nu">{task.EdadU}</td>
-            <td className="CURP">{task.CurpU}</td>
-            <td className="Correo">{task.CorreoU}</td>
+           
+            <th className='Id'>{task.id_Usuario}</th>
+            <th className='name'>{task.NombreU}</th>
+            <th className='name'>{task.ApellidosU}</th>
+            <th className='nu'>{task.EdadU}</th>
+            <th className='name'>2491107481</th>
+            <th className='name'>Vespertino</th>
+            <th className='nu'>12</th>
+            <th className='name'>Disponible</th>
 
             <td className="btnimg">
               <button

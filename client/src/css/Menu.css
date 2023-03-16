@@ -4,40 +4,43 @@
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
-.mapa{
-    background-color: black;
-}
-
-
-
-.listaul1{
-    margin-top: 675px;
-    height: 50px;
-   
-}
-.listali{
+ul{
+    display: flex;
+    height: 100px;
     
-    position: relative;
-    
+}
+li {
     right: 0;
     left: 0;
     margin: 0 auto;
     list-style: none;
     width: 100px;
     text-align: center;
-    
 }
 
-
+.listaul1{
+    width: 100%;
+    position: absolute;
+    z-index: 1000;
+    top: 90%;
+    height: 50px;
+   
+}
+.Selector{
+    top: 40px;
+    font-size: 15px;
+    height: 30px;
+    width: 200px;
+    position: absolute;
+    right: 10px;
+}
 
 .an{
-    margin-top: 100px;
+   
     color: #000;
     text-decoration: none;
     width: 70px;
     font-size: 19px;
-    
-    
 }
 
 .an:hover::after{
@@ -72,9 +75,9 @@ h1{
     cursor: pointer;
     transition: border-color 0.25s;
     position: absolute;
-    top: -21px;
+    top: 0px;
     right: 0;
-    left: 87%;
+    left: 89%;
     margin: 5px 10px;
     
 }

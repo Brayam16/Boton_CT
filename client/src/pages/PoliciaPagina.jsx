@@ -1,19 +1,19 @@
 
 import { useEffect } from 'react'
-import ListaDeUsuarios from '../components/ListaDeUsuarios';/////
+import ListaDePolicias from '../components/ListaDePolicias';/////
 import { useTasks } from '../context/Consultas';
 import '../css/UsuarioPagina.css'
 import Menu2 from './Menu2';
 
 
-function PaginaUsuarios() {
+function PaginaPolicias() {
   const opcion1 = async () => {
     
     var x =document.getElementById('SelectOpciones').value;
     
-    if(x=="policia"){
-      console.log('policia');
-      window.location.href = "/policias";
+    if(x=="Usuarios"){
+      console.log('Usuarios');
+      window.location.href = "/usuarios";
     }
     if(x=="paramedico"){
       console.log('policia');
@@ -32,18 +32,18 @@ function PaginaUsuarios() {
   function renderMain() {
     if (tasks.length === 0) return <h1><br></br>no hay Usuarios</h1>
     return tasks.map(task => (
-      <ListaDeUsuarios task={task} user={task.id_Usuario} />
+      <ListaDePolicias task={task} user={task.id_Usuario} />
     ))
   }
 
   return (
     <>
     <select className='Selector' id="SelectOpciones" onClick={() => opcion1()} type="selection" name="tipo"  >
+          <option value="">Policías</option>
           <option value="Usuarios">Usuarios</option>
-          <option value="policia">Policías</option>
           <option value="paramedico">Paramedicos</option>
         </select>
-      <h1>Usuarios</h1>
+      <h1>Policias</h1>
             <div className="contenedo">
 
         <thead className='titulos'>
@@ -52,9 +52,12 @@ function PaginaUsuarios() {
             <th className='Id'>Identificador</th>
             <th className='name'>Nombre</th>
             <th className='name'>Apellidos</th>
-            <th className='nu'><p className='Edad'>Edad</p></th>
-            <th className='CURP'>Curp</th>
-            <th className='Correo'>Correo</th>
+            <th className='name'>Edad</th>
+            <th className='name'>Telefono</th>
+            <th className='name'> Turno</th>
+            <th className='nu'>No.Patrulla</th>
+            <th className='name'>Estado</th>
+
             
 
           </tr>
@@ -71,4 +74,4 @@ function PaginaUsuarios() {
   )
 }
 
-export default PaginaUsuarios;
+export default PaginaPolicias;

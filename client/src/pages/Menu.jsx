@@ -9,6 +9,7 @@ import Mapa from './mapa';
 const cookies = new Cookies();
 
 class Menu extends React.Component {
+    
     cerrarSesion=()=>{
         cookies.remove('id', {path: "/"});
         cookies.remove('apellido_paterno', {path: "/"});
@@ -32,12 +33,17 @@ class Menu extends React.Component {
         console.log('nombre: '+cookies.get('nombre'));
         console.log('username: '+cookies.get('username'));
         return (
+            
             <>
             <Mapa/>
             <div className=''>
           <ul className='listaul1'>
+            
             <li >
             < Link className='an' to="/menu">Inicio</ Link >
+            </li>
+            <li>
+                <Link className='an' to="/establecimientos">Establecimientos</Link>
             </li>
             <li >
             < Link className='an' to="/alerta">Alerta</ Link> 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Bar, Line } from "react-chartjs-2";
 import { Chart as ChartJS } from 'chart.js/auto'
-import Menu3 from './Menu3';
+import Menu2 from './Menu2';
 import '../css/graficos.css'
 
 function Graficos() {
@@ -48,7 +48,7 @@ function Graficos() {
                     <Bar data={data} options={opciones} />
                 </div>
             </div>
-            <Menu3></Menu3>
+            <Menu2></Menu2>
         </>
     );
 }

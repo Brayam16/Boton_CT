@@ -4,6 +4,8 @@ import { useTasks } from '../context/Consultas';
 import { useNavigate } from 'react-router-dom';
 import '../css/listaDeAlertas.css'
 import Modal from './Modal2'
+import imgBorrar from '../media/boton-eliminar.png'
+import imgEditar from '../media/editar.png'
 
 function ListaDeAlertas({ task, user }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -67,14 +69,16 @@ function ListaDeAlertas({ task, user }) {
           <tr className='lista'>
 
             <td className='name'>edd</td>
-            <td className='nu'>{task.title}</td>
+            <td className='nu'>{task.id_Emergencia}</td>
             <td className='ususL'>po</td>
 
-            <td className='nu'>{task.description}</td>
+            <td className='nu'>{task.Ubicacion_Origen}</td>
             <td className='estaC'><span className='simbolo'>{task.done == 1 ? "✔" : "✘"}</span></td>
             <td className='estaL'>tipo</td>
             <td className='btnL'><button className='btnLA' id='abrirModal' onClick = {() => Modal1(true) }>Atender</button></td>
-
+            
+            <td className='btnimg'><button className='btnimg' onClick={() => navigate(`/edit/${task.id}`)}><img src={imgEditar} className="img2" /></button></td>
+            <td className='btnimg'><button  className='btnimg' onClick={() => deleteTask(task.id)}><img src={imgBorrar} className="img1" /></button></td>
           </tr>
         </tbody>
 
@@ -88,7 +92,7 @@ function ListaDeAlertas({ task, user }) {
 
         <span>{task.createAt}</span>
 
-        <button onClick={() => deleteTask(task.id)}>Eliminar</button>
-        <button onClick={() => navigate(`/edit/${task.id}`)}>Editar</button> */
+        
+ */
 
 export default ListaDeAlertas

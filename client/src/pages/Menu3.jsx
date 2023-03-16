@@ -39,6 +39,9 @@ class Menu extends React.Component {
             <li >
             <Link className='ann' to="/menu">Inicio</Link>
             </li>
+            <li>
+                <Link className='an' to="/establecimientos">Establecimientos</Link>
+            </li>
             <li >
             <Link className='ann' to="/alerta">Alerta</Link> 
             </li>
