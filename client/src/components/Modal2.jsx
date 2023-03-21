@@ -2,12 +2,15 @@ import React from 'react'
 import '../css/listaDeAlertas.css'
 const DIV_MODAL_STYLE = {
     position : 'fixed',
+    width: '70%',
+    height: '80%',
     top: '50%',
     left: '50%',
     transform : 'translate(-50%,-50%)',
     backgroundColor: '#FFE5BA',
     padding: '50px',
-    zIndex: 1000
+    zIndex: 1000,
+    borderRadius: '10px',
 }
 const DIV_OVERLAY_STYLE = {
     position : 'fixed',
@@ -21,12 +24,12 @@ const DIV_OVERLAY_STYLE = {
 const BotonX = {
     position : 'absolute',
     top : 0,
-    right: 0,
+    right: '10px',
     with:'150px',
     height: '50px',
     backgroundColor: '#FFE5BA',
     zIndex : 1000,
-    border: '1px solid #d0d0d0',
+    border: 'none',
 }
 const LetraP = {
     position : 'absolute',

@@ -4,7 +4,7 @@ import ListaDeAlertas from '../components/ListaDeAlertas';/////
 import { useTasks } from '../context/Consultas';
 import '../css/AlertasPagina.css'
 import Menu2 from './Menu2';
-
+import imgIcono from '../media/editar.png'
 
 function AlertasPagina() {
 
@@ -26,7 +26,7 @@ function AlertasPagina() {
     <>
       <div className="icon">
         <ul>
-          <li>Policia</li>
+          <li><div className='ContenedorLi'><img src={imgIcono} className="imgIcono" /><p id='MensajeP'>Policia</p></div></li>
           <li>Ambulanica</li>
           <li>Atendido</li>
           <li>Atendiendo</li>
@@ -38,14 +38,16 @@ function AlertasPagina() {
         <thead className='titulos'>
 
           <tr>
-            <th className='nameL'></th>
+            <th className='nu'></th>
+            <th className='nu'></th>
+            <th className=''></th>
             <th className='nuA'>Alerta</th>
             <th className='usus'></th>
 
             <th className='nuA'>Atencion</th>
             <th className='esta'>Estado</th>
             <th className='esta'>Tipo</th>
-            <th className='btn'></th>
+            
 
           </tr>
         </thead>

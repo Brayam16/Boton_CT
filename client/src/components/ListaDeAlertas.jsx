@@ -68,13 +68,13 @@ function ListaDeAlertas({ task, user }) {
 
           <tr className='lista'>
 
-            <td className='name'>edd</td>
-            <td className='nu'>{task.id_Emergencia}</td>
-            <td className='ususL'>po</td>
+            <td className='name'>Emergencia del usuario</td>
+            <td className='nu'>{task.	id_Usuario_E }</td>
+            <td className='ususL'>Atendida por el usuario</td>
 
-            <td className='nu'>{task.Ubicacion_Origen}</td>
-            <td className='estaC'><span className='simbolo'>{task.done == 1 ? "✔" : "✘"}</span></td>
-            <td className='estaL'>tipo</td>
+            <td className='nu'>{<span className='simbolo'>{task.id_Ambulacia != 16 ?  task.id_Ambulacia : task.id_Policia != 16 ?  task.id_Policia :'no se atiende'}</span>}</td>
+            <td className='estaC'><span className='simbolo'>{task.Estado != 1 ? "No se atendio" : task.Estado != 2 ? "Se atendio" :task.Estado != 3 ? "E3" :"no"}</span></td>
+            <td className='estaL'><span className='simbolo'>{task.Tipo != 1 ? "Policia" : "Ambulancia"}</span></td>
             <td className='btnL'><button className='btnLA' id='abrirModal' onClick = {() => Modal1(true) }>Atender</button></td>
             
             <td className='btnimg'><button className='btnimg' onClick={() => navigate(`/edit/${task.id}`)}><img src={imgEditar} className="img2" /></button></td>

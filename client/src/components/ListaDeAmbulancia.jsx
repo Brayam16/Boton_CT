@@ -9,73 +9,55 @@ import imgBorrar from "../media/boton-eliminar.png";
 import imgEditar from "../media/editar.png";
 import '../css/Modal_LP.css';
 
-function ListaDePolicias({ task, user }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
+function ListaDeAmbulancia({ task, user }) {
+  
   const [isOpen3, setIsOpen3] = useState(false);
 
-  const { getusuario, deletePolicia, updatePolicia } = useTasks();
+  const { getambulancia, deleteAmbulancia, updateambulancia } = useTasks();
 
   const [tasks2, setTask2] = useState({
-    NombresPo: "",
-    ApellidosPo: "",
-    EdadPo: "",
-    TelefonoPo: "",
-    CorreoPo: "",
-    TurnoPo: "",
-    Numero_Patrulla: "",
-    UbicacionPo: "",
-    Estado:"",
+    NombresP: "",
+    ApellidosP: "",
+    EdadP:"",
+    TelefonoP: "",
+    CorreoP: "",
+    Turno: "",
+    Numero_Ambulancia: "",
+    ubicacionP: "",
   })
 
   const params = useParams();
   const navigate = useNavigate();
 
   const handleDone = async () => {
-    await toggleTaskDone(task.id_Usuario);
-    setIsOpen2(false);
+    await toggleTaskDone(task.id_Ambulacia );
+
   };
   const Eliminar = async () => {
-    deletePolicia(task.id_Policia);
-    window.location.href = "/policias";
+    deleteAmbulancia(task.id_Ambulacia );
+    window.location.href = "/ambulancias";
+    
   };
 
-  const Modal1 = async () => {
-    setIsOpen(true);
-  };
-  const Modal2 = async () => {
-    setIsOpen(false);
-    setIsOpen2(true);
-  };
   const Modal3 = async () => {
-    navigate(`/editP/${task.id_Policia}`);
-    
+    navigate(`/editA/${task.id_Ambulacia }`);
     setIsOpen3(true);
-    
-    
-      
-    
-
-    
   };
-  const Modal4 = async () => {
-    setIsOpen3(false);
-  };
+  
   useEffect(() => {
     const loadUsuarios = async () => {
-      if (params.id_Usuario) {
-        const task = await getusuario(params.id);
+      if (params.id_Ambulacia ) {
+        const task = await getambulancia(params.id);
 
         setTask2({
-          NombresPo: task.NombresPo,
-          ApellidosPo: task.ApellidosPo,
-          EdadPo: task.EdadPo,
-          TelefonoPo: task.TelefonoPo,
-          CorreoPo: task.CorreoPo,
-          TurnoPo: task.TurnoPo,
-          Numero_Patrulla: task.Numero_Patrulla,
-          UbicacionPo: task.UbicacionPo,
-          Estado: task.Estado,
+          NombresP: task.NombresP,
+          ApellidosP: task.ApellidosP,
+          EdadP: task.EdadP,
+          TelefonoP: task.TelefonoP,
+          CorreoP: task.CorreoP,
+          Turno: task.Turno,
+          Numero_Ambulancia: task.Numero_Ambulancia,
+          ubicacionP: task.ubicacionP,
         })
       }
     };
@@ -84,36 +66,7 @@ function ListaDePolicias({ task, user }) {
 
   return (
     <>
-      <Modal open={isOpen} close={() => setIsOpen(false)}>
-        <div className="contenido">
-          <h1>Asignar ayuda</h1>
-          <label>Numero de placa</label>
-          <input type="text" className="btnM" />
-          <br></br>
-          <label>Numero de patrulla</label>
-          <input type="text" className="btnM" />
-          <br></br>
-          <button className="BtnContinuar" onClick={() => Modal2(true)}>
-            continuar
-          </button>
-        </div>
-      </Modal>
-      <Modal open={isOpen2} close={() => setIsOpen2(false)}>
-        <div className="contenido">
-          <h1>Asignar ayuda</h1>
-          <label>Numero de Ambulacion</label>
-          <input type="text" className="btnM" />
-          <br></br>
-
-          <br></br>
-          <button
-            className="BtnContinuar"
-            onClick={() => handleDone(task.done)}
-          >
-            Confirmar
-          </button>
-        </div>
-      </Modal>
+      
       <Modal open={isOpen3} close={() => setIsOpen3(false)}>
         <div className="titulos">
           <h1>{params.id ? "Editar Policia" : "Nueva Tarea"}</h1>
@@ -127,9 +80,8 @@ function ListaDePolicias({ task, user }) {
 
               if (params.id) {
                 console.log("actualizacion");
-                await updatePolicia(params.id, values);
-                window.location.href = "/policias";
-
+                await updateambulancia(params.id, values);
+                window.location.href = "/ambulancias";
                
               } else {
                 
@@ -154,50 +106,50 @@ function ListaDePolicias({ task, user }) {
                 <input
                 className="input_L"
                   type="text"
-                  name="NombresPo"
+                  name="NombresP"
                   placeholder="Escribe el Nombre"
                   onChange={handleChange}
-                  value={values.NombresPo}
+                  value={values.NombresP}
                 />
                 <div className="Espacio"></div>
                 <label>Apellidos</label>
                 <input
                 className="input_L"
                   type="text"
-                  name="ApellidosPo"
+                  name="ApellidosP"
                   placeholder="Escribe los apellidos"
                   onChange={handleChange}
-                  value={values.ApellidosPo}
+                  value={values.ApellidosP}
                 />
                 <div className="Espacio"></div>
                 <label>Edad</label>
                 <input
                 className="input_L"
                   type="text"
-                  name="EdadPo"
+                  name="EdadP"
                   placeholder="Escribe la edad"
                   onChange={handleChange}
-                  value={values.EdadPo}
+                  value={values.EdadP}
                 />
                 <div className="Espacio"></div>
-                <label>Curp</label>
+                <label>Telefono</label>
                 <input
                 className="input_L"
                   type="text"
-                  name="TelefonoPo"
-                  placeholder="Escribe el CURP"
+                  name="TelefonoP"
+                  placeholder="Escribe el Telefono"
                   onChange={handleChange}
-                  value={values.TelefonoPo}
+                  value={values.TelefonoP}
                 />
                 <div className="Espacio"></div>
-                <label>CorreoU</label>
+                <label>Correo</label>
                 <input
                 className="input_L"
                   type="text"
-                  name="CorreoPo"
+                  name="CorreoP"
                   placeholder="Escribe el Correo"
                   onChange={handleChange}
-                  value={values.CorreoPo}
+                  value={values.CorreoP}
                 />
                 </div>
                 <div className="section1">
@@ -205,30 +157,30 @@ function ListaDePolicias({ task, user }) {
                 <input
                 className="input_L"
                   type="text"
-                  name="TurnoPo"
+                  name="Turno"
                   placeholder="Escribe el Turno"
                   onChange={handleChange}
-                  value={values.TurnoPo}
+                  value={values.Turno}
                 />
                 <div className="Espacio"></div>
-                <label>Numero de Patrulla</label>
+                <label>Numero de Ambulancia</label>
                 <input
                 className="input_L"
                   type="text"
-                  name="Numero_Patrulla"
+                  name="Numero_Ambulancia"
                   placeholder="Escribe el Numero de Patrulla"
                   onChange={handleChange}
-                  value={values.Numero_Patrulla}
+                  value={values.Numero_Ambulancia}
                 />
                 <div className="Espacio"></div>
                 <label>Ubicacion</label>
                 <input
                 className="input_L"
                   type="text"
-                  name="UbicacionPo"
+                  name="UbicacionP"
                   placeholder="Escribe la Ubicacion"
                   onChange={handleChange}
-                  value={values.UbicacionPo}
+                  value={values.ubicacionP}
                 />
                 
                 <label>Estado</label>
@@ -251,23 +203,26 @@ function ListaDePolicias({ task, user }) {
           </Formik>
         </div>
       </Modal>
+      
+
+      
       <table className="conte">
         <tbody>
           <tr className="lista">
            
-            <th className='nu'>{task.id_Policia }</th>
-            <th className='name'>{task.NombresPo}</th>
-            <th className='name'>{task.ApellidosPo}</th>
-            <th className='nu'>{task.EdadPo}</th>
-            <th className='name'>{task.TelefonoPo}</th>
-            <th className='name'>{task.TurnoPo}</th>
-            <th className='nu'>{task.Numero_Patrulla}</th>
+            <th className='nu'>{task.id_Ambulacia }</th>
+            <th className='name'>{task.NombresP}</th>
+            <th className='name'>{task.ApellidosP}</th>
+            
+            <th className='name'>{task.TelefonoP}</th>
+            <th className='name'>{task.Turno}</th>
+            <th className='nu'>{task.Numero_Ambulancia}</th>
             <th className='name'>{task.Estado}</th>
 
             <td className="btnimg">
               <button
                 className="btnimg"
-                onClick={() => Modal3(`/editP/${task.id_Policia}`)}
+                onClick={() => Modal3(`/editA/${task.id_Ambulacia}`)}
               >
                 <img src={imgEditar} className="img2" />
               </button>
@@ -275,7 +230,7 @@ function ListaDePolicias({ task, user }) {
             <td className="btnimg">
               <button
                 className="btnimg"
-                onClick={() => Eliminar(task.id_Policia)}
+                onClick={() => Eliminar(task.id_Ambulacia)}
               >
                 <img src={imgBorrar} className="img1" />
               </button>
@@ -283,6 +238,7 @@ function ListaDePolicias({ task, user }) {
           </tr>
         </tbody>
       </table>
+      
     </>
   );
 }
@@ -294,4 +250,4 @@ function ListaDePolicias({ task, user }) {
         
  */
 
-export default ListaDePolicias;
+export default ListaDeAmbulancia;

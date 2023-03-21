@@ -30,7 +30,7 @@ function FormularioAlta() {
 
                     await createPolicia(values);
                     actions.resetForm();
-                    navigate("/usuarios")
+                    navigate("/policias")
 
                 }}
 

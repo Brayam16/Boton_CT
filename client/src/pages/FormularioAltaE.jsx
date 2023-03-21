@@ -25,7 +25,7 @@ function FormularioAlta() {
 
                     await createEstablecimiento(values);
                     actions.resetForm();
-                    navigate("/usuarios")
+                    navigate("/establecimientos")
 
                 }}
 

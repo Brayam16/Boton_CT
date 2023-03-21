@@ -47,7 +47,7 @@ function FormularioAlta() {
 
                     await createAmbulancia(values);
                     actions.resetForm();
-                    navigate("/usuarios")
+                    navigate("/ambulancias")
 
                 }}
 
@@ -93,6 +93,7 @@ function FormularioAlta() {
                             </div>
 
                             <div className="section1">
+                                
 
 
                                 <div className="lu">

@@ -1,24 +1,26 @@
 import { createContext, useContext, useState } from 'react'
 import {
-    getTasksRequest,
-    deleteTaskRequest,
-    createTaskRequest,
-    getTaskRequest,
-    updateTaskRequest,
-    toggleTaskDoneRequest,
+    getEmergenciasRequest,
+    getEmergenciaRequest
 } from '../api/Alertas.api';
-import {getAlertasRequest,} from '../api/Alertas.api'
+
 import {createUserRequest, getUsuariosRequest,toggleUsuariosRequest,deleteUsuariosRequest,getUsuarioRequest,updateUserRequest} from '../api/usuarios.api'
 import { TaskContext } from './TaskContext';
 import {
     getestablecimientosRequest,
     createestablecimientoRequest,
+    getestablecimientoRequest,
+    updateestablecimientosRequest,
+    deleteestablecimientosRequest,
 } from "../api/Establecimientos.api";
 import{
-    createpoliciaRequest,getpoliciaRequest
-}from "../api/Policia.api"
+    createpoliciaRequest,getpoliciaRequest,togglepoliciasRequest,deletepoliciasRequest,getpoliciasRequest,updatepoliciasRequest }from "../api/Policia.api"
 import{
-    createambulanciaRequest
+    getambulanciasRequest,
+    getambulanciaRequest,
+    createambulanciasRequest,
+    updateambulanciasRequest,
+    deleteambulanciasRequest
 } from "../api/Ambulancia.api";
 
 
@@ -37,7 +39,7 @@ export const TaskContextProvite = ({ children }) => {//agrupa
     const [tasks, setTasks,tasks2, setTasks2  ] = useState([]);//recorer arreglo
 
     async function loadTasks() {
-        const response = await getAlertasRequest()
+        const response = await getEmergenciasRequest()
         setTasks(response.data);
     };
 
@@ -51,11 +53,15 @@ export const TaskContextProvite = ({ children }) => {//agrupa
         setTasks2(response.data);
     };
     async function loadPolicia() {
-        const response = await getestablecimientosRequest();
+        const response = await getpoliciasRequest ();
         setTasks(response.data);
     };
     async function loadEstablecimientos() {
-        const response = await getpoliciaRequest();
+        const response = await getestablecimientosRequest();
+        setTasks(response.data);
+    };
+    async function loadAmbulancia() {
+        const response = await getambulanciasRequest();
         setTasks(response.data);
     };
 
@@ -176,14 +182,69 @@ export const TaskContextProvite = ({ children }) => {//agrupa
             console.error(error);
         }
     };
+    const getestablecimiento = async (id_Usuario) => {
+        try {
+            const response = await getestablecimientosRequest(id_Usuario)
+            return response.data
+        } catch (error) {
+            console.error(error)
+        }
+    }
+    const deleteestablecimiento = async (id) => {
+        try {
+            const response = await deleteestablecimientosRequest(id);
+            setTasks(tasks.filter(task => task.id !== id))//buscar el que sea diferente
+
+        } catch (error) {
+            console.error(error)
+        }
+    };
+
+    const updateestablecimiento = async (id, newFields) => {
+        try {
+            const response = await updateestablecimientosRequest(id, newFields)
+            console.log(response);
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+
     //Ambulancia
     const createAmbulancia = async (tasks) => {
         try {
-            await createambulanciaRequest(tasks);
+            await createambulanciasRequest(tasks);
         } catch (error) {
             console.error(error);
         }
     };
+    const getambulancia= async (id_Usuario) => {
+        try {
+            const response = await getambulanciaRequest(id_Usuario)
+            return response.data
+        } catch (error) {
+            console.error(error)
+        }
+    }
+    const deleteAmbulancia = async (id) => {
+        try {
+            const response = await deleteambulanciasRequest(id);
+            setTasks(tasks.filter(task => task.id !== id))//buscar el que sea diferente
+
+        } catch (error) {
+            console.error(error)
+        }
+    };
+
+    const updateambulancia = async (id, newFields) => {
+        try {
+            const response = await updateambulanciasRequest(id, newFields)
+            console.log(response);
+        } catch (error) {
+            console.error(error)
+        }
+    }
+    
     //Policia
     const createPolicia = async (tasks) => {
         try {
@@ -192,12 +253,31 @@ export const TaskContextProvite = ({ children }) => {//agrupa
             console.error(error);
         }
     };
+    const deletePolicia = async (id) => {
+        try {
+            const response = await deletepoliciasRequest (id);
+            setTasks(tasks.filter(task => task.id !== id))//buscar el que sea diferente
+
+        } catch (error) {
+            console.error(error)
+        }
+    };
+
+    const updatePolicia = async (id, newFields) => {
+        try {
+            const response = await updatepoliciasRequest(id, newFields)
+            console.log(response);
+        } catch (error) {
+            console.error(error)
+        }
+    }
+   
 
     
 
     return (
-        <TaskContext.Provider value={{ tasks,tasks2,  loadTasks,loadEstablecimientos,loadPolicia, deleteTask, createTask, getTask, updateTask,updateusuarios,
-        toggleTaskDone, createUser, getusuario, loadUsuarios,loadUsuarios2,createEstablecimiento,createAmbulancia,createPolicia,toggleUserDone,deleteusuarios }}>
+        <TaskContext.Provider value={{ tasks,tasks2,  loadTasks,loadEstablecimientos,loadPolicia,loadAmbulancia, deleteTask, createTask, getTask, updateTask,updateusuarios,
+        toggleTaskDone,getestablecimiento,deleteestablecimiento,updateestablecimiento, createUser, getusuario,getambulancia,deletePolicia,deleteAmbulancia,updateambulancia,updatePolicia, loadUsuarios,loadUsuarios2,createEstablecimiento,createAmbulancia,createPolicia,toggleUserDone,deleteusuarios }}>
             {children}
         </TaskContext.Provider>
     );

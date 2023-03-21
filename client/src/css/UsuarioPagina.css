@@ -2,10 +2,18 @@
 Todos los compuestos
 
 */
-.identificador{
 
+#Tabla_Scroll{
+    overflow:scroll;
+     height:520px;
+     width:100%;
 }
-
+#Tabla_Scroll table{
+    width:98%;
+    background-color:#FFF0D8;
+    
+    
+}
 
 .ulli{
     display: flex;

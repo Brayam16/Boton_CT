@@ -49,17 +49,21 @@ function PaginaUsuarios() {
         <thead className='titulos'>
 
           <tr>
-            <th className='Id'>Identificador</th>
+            <th className='nu'>Identificador</th>
             <th className='name'>Nombre</th>
             <th className='name'>Apellidos</th>
-            <th className='nu'><p className='Edad'>Edad</p></th>
-            <th className='CURP'>Curp</th>
-            <th className='Correo'>Correo</th>
+            <th className='nu'>Edad</th>
+            <th className='name'>Curp</th>
+            <th className='name'>Correo</th>
+            <th className='Correo'></th>
+            <th className='Correo'></th>
             
 
           </tr>
         </thead>
+        <div id="Tabla_Scroll">
         {renderMain()}
+        </div>
       </div>
       <Menu2></Menu2>
       

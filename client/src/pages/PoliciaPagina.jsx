@@ -22,18 +22,22 @@ function PaginaPolicias() {
     
     
   }
-  const { tasks, loadUsuarios} = useTasks();
+  const { tasks, loadPolicia} = useTasks();
 
   useEffect(() => {
-    loadUsuarios();
+    loadPolicia();
     
   }, []);
 
   function renderMain() {
-    if (tasks.length === 0) return <h1><br></br>no hay Usuarios</h1>
-    return tasks.map(task => (
-      <ListaDePolicias task={task} user={task.id_Usuario} />
-    ))
+    if (tasks.length === 0) return <h1><br></br>no hay Policias</h1>
+    if (tasks.id_Policia!=16) {
+      return tasks.map(task => (
+        <ListaDePolicias task={task} user={task.id_Policia} />
+      ))
+    }
+    console.log(tasks.id_Policia);
+    
   }
 
   return (
@@ -49,20 +53,26 @@ function PaginaPolicias() {
         <thead className='titulos'>
 
           <tr>
-            <th className='Id'>Identificador</th>
+            <th className='nu'>Identificador</th>
             <th className='name'>Nombre</th>
-            <th className='name'>Apellidos</th>
-            <th className='name'>Edad</th>
+            <th className='nu'>Apellidos</th>
+            <th className='es'></th>
+            <th className='nu'>Edad</th>
             <th className='name'>Telefono</th>
-            <th className='name'> Turno</th>
+            <th className='es'></th>
+            <th className='nu'> Turno</th>
             <th className='nu'>No.Patrulla</th>
-            <th className='name'>Estado</th>
+            <th className='nu'>Estado</th>
+            <th className='name'></th>
+            
 
             
 
           </tr>
         </thead>
+        <div id="Tabla_Scroll">
         {renderMain()}
+        </div>
       </div>
       <Menu2></Menu2>
       

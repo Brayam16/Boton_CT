@@ -1,85 +1,82 @@
 
-import { useEffect, useState } from 'react'
-import { getUsuariosRequest } from '../api/usuarios.api'
-import Menu2 from './Menu2';
-
-import { useParams, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react'
+import ListaDeAmbulancia from '../components/ListaDeAmbulancia';/////
+import { useTasks } from '../context/Consultas';
 import '../css/UsuarioPagina.css'
+import Menu2 from './Menu2';
+import "../css/listaDeAlertas.css";
 
-
-function PaginaUsuarios() {
-  
+function PaginaAmbulancias() {
   const opcion1 = async () => {
     
     var x =document.getElementById('SelectOpciones').value;
     
     if(x=="Usuarios"){
-      console.log('policia');
+      console.log('Usuarios');
       window.location.href = "/usuarios";
     }
-    if(x=="policia"){
+    if(x=="policias"){
       console.log('policia');
       window.location.href = "/policias";
     }
     
     
   }
-
-  const [users, setUsuarios] = useState([])
-  
+  const { tasks, loadAmbulancia} = useTasks();
 
   useEffect(() => {
-    async function cargarTarea() {
-      const response = await getUsuariosRequest()
-      setUsuarios(response.data)
-    }
-    cargarTarea()
+    loadAmbulancia();
+    
   }, []);
 
+  function renderMain() {
+    if (tasks.length === 0) return <h1><br></br>no hay Usuarios</h1>
+    return tasks.map(task => (
+      <ListaDeAmbulancia task={task} user={task.id_Usuario} />
+    ))
+  }
 
   return (
     <>
-    <div className='cont'>
-        <h1>Paramedicos</h1>
-        
-        <select className='Selector' id="SelectOpciones" onClick={() => opcion1()} type="selection" name="tipo"  >
-        <option value="paramedico">Paramedicos</option>
-          <option value="policia">Policías</option>
+    <select className='Selector' id="SelectOpciones" onClick={() => opcion1()} type="selection" name="tipo"  >
+          <option value="">Paramedicos</option>
           <option value="Usuarios">Usuarios</option>
-          
+          <option value="policias">Policias</option>
         </select>
+      <h1>Paramedicos</h1>
+            <div className="contenedo">
 
-        <thead>
-          <tr className='tituloT'>
-            <th className='titu'>No. Usuario</th>
-            <th className='titu'>Nombre</th>
-            <th className='titu'>Tipo de Usuario</th>
+        <thead className='titulos'>
+
+          <tr>
+            <th className='nu'>Identificador</th>
+            <th className='name'>Nombre</th>
+            <th className='name'>Apellidos</th>
+            <th className='name'>Telefono</th>
+            <th className=''> Turno</th>
+            
+            <th className=''>No.Patrulla</th>
+            <th className=''>Estado</th>
+            <th className='nu'></th>
+            <th className='nu'></th>
+
+            
+
           </tr>
         </thead>
-
-
-        {
-          users.map(usuario => (
-            <div key={usuario.id}>
-              <tr className='ulli'>
-                <td className='usu' id='i'>{usuario.id_Usuario }</td>
-                <td className='usu'>{usuario.NombreU}</td>
-                <td className='usu' id='f'>{usuario.EdadU}</td>
-              </tr>
-            </div>
-
-          ))
-        }
-    </div>
+        <div id="Tabla_Scroll">
+        {renderMain()}
+        </div>
+        
+      </div>
+      <Menu2></Menu2>
+      
+      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+ 
+</>
     
-    
-    <Menu2></Menu2>
-    </>
-    
-    
-
   )
-
 }
 
-export default PaginaUsuarios;
+export default PaginaAmbulancias;

@@ -14,7 +14,7 @@ import PaginaUsuarios from './pages/UsuariosPagina'
 import PaginaPolicias from './pages/PoliciaPagina'
 import PaginaAmbulancias from './pages/AmbulanciaPagina'
 import OpcionesA from './pages/Opcion_de_registro';
-import PaginaEstablecimientos from './pages/Establecimientos'
+import PaginaEstablecimientos from './pages/EstablecimientoPagina'
 import { TaskContextProvite } from './context/Consultas'
 import Menu2 from './pages/Menu2';
 import './App.css'
@@ -38,7 +38,10 @@ export default function App() {
           <Route exact path='/usuarios' element={<PaginaUsuarios />} />
           <Route exact path='/policias' element={<PaginaPolicias />} />
           <Route exact path='/ambulancias' element={<PaginaAmbulancias />} />
-          <Route path='/edit/:id' element={<PaginaUsuarios />} />
+          <Route path='/editU/:id' element={<PaginaUsuarios />} />
+          <Route path='/editP/:id' element={<PaginaPolicias />} />
+          <Route path='/editA/:id' element={<PaginaAmbulancias />} />
+          <Route path='/editE/:id' element={<PaginaEstablecimientos />} />
           
           <Route path='*' element={<Error404 />} />
         </Routes>

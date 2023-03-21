@@ -7,6 +7,7 @@ import "../css/listaDeAlertas.css";
 import Modal from "./Modal2";
 import imgBorrar from "../media/boton-eliminar.png";
 import imgEditar from "../media/editar.png";
+import '../css/Modal_LU.css';
 
 function ListaDeUsuarios({ task, user }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,7 +47,7 @@ function ListaDeUsuarios({ task, user }) {
     setIsOpen2(true);
   };
   const Modal3 = async () => {
-    navigate(`/edit/${task.id_Usuario}`);
+    navigate(`/editU/${task.id_Usuario}`);
     
     setIsOpen3(true);
     
@@ -81,40 +82,12 @@ function ListaDeUsuarios({ task, user }) {
 
   return (
     <>
-      <Modal open={isOpen} close={() => setIsOpen(false)}>
-        <div className="contenido">
-          <h1>Asignar ayuda</h1>
-          <label>Numero de placa</label>
-          <input type="text" className="btnM" />
-          <br></br>
-          <label>Numero de patrulla</label>
-          <input type="text" className="btnM" />
-          <br></br>
-          <button className="BtnContinuar" onClick={() => Modal2(true)}>
-            continuar
-          </button>
-        </div>
-      </Modal>
-      <Modal open={isOpen2} close={() => setIsOpen2(false)}>
-        <div className="contenido">
-          <h1>Asignar ayuda</h1>
-          <label>Numero de Ambulacion</label>
-          <input type="text" className="btnM" />
-          <br></br>
-
-          <br></br>
-          <button
-            className="BtnContinuar"
-            onClick={() => handleDone(task.done)}
-          >
-            Confirmar
-          </button>
-        </div>
-      </Modal>
+      
       <Modal open={isOpen3} close={() => setIsOpen3(false)}>
         <div className="titulos">
-          <h1>{params.id ? "Editar Tarea" : "Nueva Tarea"}</h1>
-          
+          <h1>{params.id ? "Editar Usuario" : "Nueva Tarea"}</h1>
+          <br></br>
+          <br></br>
           <Formik
             initialValues={task}
             enableReinitialize={true}
@@ -144,48 +117,84 @@ function ListaDeUsuarios({ task, user }) {
                {console.log(values)} 
               {console.log(params.id)}
               {console.log(tasks2)}
-                <label>Nombre</label>
+
+              <div className="contenedorA">
+              <div className="section1">
+                <label className="nomm">Nombre</label>
+                <br></br>
                 <input
+                className="input_L"
                   type="text"
                   name="NombreU"
                   placeholder="Escribe el titulo"
                   onChange={handleChange}
                   value={values.NombreU}
                 />
-                <label>Apellidos</label>
+                <div className="Espacio">
+
+                </div>
+                <br></br>
+                <label className="nomm">Apellidos</label>
+                <br></br>
                 <input
+                className="input_L"
                   type="text"
                   name="ApellidosU"
                   placeholder="Escribe el titulo"
                   onChange={handleChange}
                   value={values.ApellidosU}
                 />
-                <label>EdadU</label>
+                <div className="Espacio">
+
+                </div>  
+                <label className="nomm">EdadU</label>
+                <br></br>
                 <input
+                className="input_L"
                   type="text"
                   name="EdadU"
                   placeholder="Escribe el titulo"
                   onChange={handleChange}
                   value={values.EdadU}
                 />
-                <label>CurpU</label>
+                <div className="Espacio">
+
+                </div>
+
+                </div>
+                <div className="section1">
+
+
+                <label className="nomm">CurpU</label>
+                <br></br>
                 <input
+                className="input_L"
                   type="text"
                   name="CurpU"
                   placeholder="Escribe el titulo"
                   onChange={handleChange}
                   value={values.CurpU}
                 />
-                <label>CorreoU</label>
+                <div className="Espacio">
+
+                </div>
+                <label className="nomm">CorreoU</label>
+                <br></br>
                 <input
+                className="input_L"
                   type="text"
                   name="CorreoU"
                   placeholder="Escribe el titulo"
                   onChange={handleChange}
                   value={values.CorreoU}
                 />
+                <div className="Espacio">
 
-                <button type="submit" disabled={isSubmitting}>
+                </div>
+                </div>
+                </div>
+
+                <button className="btn" type="submit" disabled={isSubmitting}>
                   {isSubmitting ? "Saving..." : "Guardar"}
                 </button>
               </Form>
@@ -196,7 +205,7 @@ function ListaDeUsuarios({ task, user }) {
       <table className="conte">
         <tbody>
           <tr className="lista">
-            <td className="Id">{task.id_Usuario}</td>
+            <td className="nu">{task.id_Usuario}</td>
             <td className="name">{task.NombreU}</td>
             <td className="name">{task.ApellidosU}</td>
             <td className="nu">{task.EdadU}</td>
@@ -206,7 +215,7 @@ function ListaDeUsuarios({ task, user }) {
             <td className="btnimg">
               <button
                 className="btnimg"
-                onClick={() => Modal3(`/edit/${task.id_Usuario}`)}
+                onClick={() => Modal3(`/editU/${task.id_Usuario}`)}
               >
                 <img src={imgEditar} className="img2" />
               </button>
