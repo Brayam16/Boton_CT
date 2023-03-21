@@ -12,6 +12,7 @@ import EstablecimientoRoutes from './routes/establecimiento.routes.js';
 import AlertasRoutes from './routes/alertas.routes.js';
 import AmbulanciasRoutes from './routes/ambulancia.routes.js';
 import PoliciasRoutes from './routes/Policia.routes.js';
+import EmergenciaRoutes from './routes/emergencia.routes.js';
  
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -28,6 +29,7 @@ app.use(EstablecimientoRoutes);
 app.use(AlertasRoutes);
 app.use(AmbulanciasRoutes);
 app.use(PoliciasRoutes);
+app.use(EmergenciaRoutes);
 
 app.use(express.static(join(__dirname, '../client/dist')));
 

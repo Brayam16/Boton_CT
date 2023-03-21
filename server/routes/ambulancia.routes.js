@@ -6,7 +6,7 @@ const router = Router();
 router.get('/ambulancias', getAmbulancias);
 router.get('/ambulancias/:id',getAmbulancia);
 router.post('/ambulancias',createAmbulancias);
-router.put('/ambulancias',updateAmbulancias);
+router.put('/ambulancias/:id',updateAmbulancias);
 router.delete('/ambulancias/:id',deleteAmbulancias);
 
 export default router;

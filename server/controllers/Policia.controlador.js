@@ -3,7 +3,7 @@ import { pool } from "../db.js"
 
 export const getPolicias = async(req, res) => {
     try{
-        const [result] = await pool.query("SELECT * FROM policia ORDER BY id_Policia  ASC");
+        const [result] = await pool.query("SELECT * FROM policia Where id_Policia !=16  ORDER BY id_Policia  ASC");
         res.json(result);
 
     }catch(error){

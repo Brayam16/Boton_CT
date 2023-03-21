@@ -3,7 +3,7 @@ import { pool } from "../db.js"
 
 export const getAmbulancias = async(req, res) => {
     try{
-        const [result] = await pool.query("SELECT * FROM ambulancia ORDER BY id_Ambulacia  ASC");
+        const [result] = await pool.query("SELECT * FROM ambulancia Where id_Ambulacia !=16 ORDER BY id_Ambulacia  ASC");
         res.json(result);
 
     }catch(error){
@@ -66,7 +66,7 @@ export const updateAmbulancias= async(req, res) => {
 export const deleteAmbulancias = async(req, res) => {
 
     try{
-    const [result] = await pool.query("DELETE FROM ambulancia WHERE id_Ambulacia = ?", [req.params.id]);
+    const [result] = await pool.query("DELETE FROM ambulancia WHERE id_Ambulacia  = ?", [req.params.id]);
 
     if (result.affectedRows === 0)
         return res.status(404).json({ message: "No se encontro la Ambulancias"});
