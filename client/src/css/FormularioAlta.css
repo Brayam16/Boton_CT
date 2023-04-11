@@ -13,7 +13,18 @@
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     
 }
-
+.btnContra{
+    background-color: transparent;
+    border: none;
+    margin-left: -100px;
+    position: absolute;
+    
+}
+.ImgContra{
+    width: 40px;
+    
+    
+    }
 .lu{
     width:100%;
     margin-top: 30px;
@@ -37,6 +48,9 @@
 .nomm{
     font-size: 23px;
     margin-top: 50px;
+}
+#inputnum{
+    width: 200px;
 }
 
 .btnn{

@@ -1,9 +1,16 @@
 .mapa{
     position: absolute;
-    top: 30px;
+    top: 50px;
     right: 0;
     left: 0;
-    margin: 0 auto;
-    width: 85%;
-    height: 80%;
+  
+    width: 65%;
+    height: 60%;
+    margin-left: 5px;
+    border-radius: 100%;
+   
+}
+.icono_Usuario{
+    width: 25px;
+    height: 25px;
 }

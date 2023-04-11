@@ -125,7 +125,7 @@ function ListaDeAmbulancia({ task, user }) {
                 <label>Edad</label>
                 <input
                 className="input_L"
-                  type="text"
+                  type="number"
                   name="EdadP"
                   placeholder="Escribe la edad"
                   onChange={handleChange}
@@ -135,7 +135,7 @@ function ListaDeAmbulancia({ task, user }) {
                 <label>Telefono</label>
                 <input
                 className="input_L"
-                  type="text"
+                  type="number"
                   name="TelefonoP"
                   placeholder="Escribe el Telefono"
                   onChange={handleChange}
@@ -145,7 +145,7 @@ function ListaDeAmbulancia({ task, user }) {
                 <label>Correo</label>
                 <input
                 className="input_L"
-                  type="text"
+                  type="email"
                   name="CorreoP"
                   placeholder="Escribe el Correo"
                   onChange={handleChange}

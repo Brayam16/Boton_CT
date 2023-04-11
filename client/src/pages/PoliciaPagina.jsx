@@ -30,7 +30,7 @@ function PaginaPolicias() {
   }, []);
 
   function renderMain() {
-    if (tasks.length === 0) return <h1><br></br>no hay Policias</h1>
+    if (tasks.length === 0) return <h1><br></br>No hay Policias</h1>
     if (tasks.id_Policia!=16) {
       return tasks.map(task => (
         <ListaDePolicias task={task} user={task.id_Policia} />

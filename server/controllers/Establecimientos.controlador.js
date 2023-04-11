@@ -41,15 +41,16 @@ export const getEstablecimientoN = async(req, res) => {
 //Creacion de nuevo establecimientos
 export const createEstablecimientos = async (req, res) => {
     try{
-        const { Nombre, Direccion,Horario,Encargado } = req.body;
-        const [result] = await pool.query('INSERT INTO establecimiento(Nombre, Direccion, Horario,Encargado) VALUES (? , ?,?,?)',
-        [Nombre, Direccion,Horario,Encargado]
+        const { Nombre, Direccion,	finalHorario,InicioHorario,Encargado } = req.body;
+        const [result] = await pool.query('INSERT INTO establecimiento(Nombre, Direccion, finalHorario,InicioHorario,Encargado) VALUES (?,?,?,?,?)',
+        [Nombre, Direccion,	finalHorario,InicioHorario,Encargado]
         );
         res.json({
             id: result.insertId,
             Nombre, 
             Direccion,
-            Horario,
+            finalHorario,
+            InicioHorario,
             Encargado,
         });
 

@@ -6,7 +6,7 @@ const router = Router();
 router.get('/alertas', getAlertas);
 router.get('/alertas/:id',getAlerta);
 router.post('/alertas',createAlertas);
-router.put('/alertas',updateAlertas);
+router.put('/alertas/:id',updateAlertas);
 router.delete('/alertas/:id',deleteAlertas);
 
 export default router;

@@ -11,6 +11,9 @@ import Map, {
 } from "react-map-gl";
 import "../css/mapa.css";
 import { useMap } from "react-map-gl";
+import ImagenIcon from "../media/ambulancia.png"
+import PaginaEmergencia12 from './NotificacionesAlertas';
+
 
 const token =
   "pk.eyJ1IjoiYW50b25pb21vcmE4NSIsImEiOiJjbGRmazF4NncwM2pnM3FvOXdjd3dqcWowIn0.N_knZD0YPcH76M9D2TaM4w";
@@ -30,7 +33,7 @@ const layerStyle = {
   type: "circle",
   paint: {
     "circle-radius": 10,
-    "circle-color": "#007cbf",
+    "circle-color": "#0cbf",
   },
 };
 
@@ -41,7 +44,11 @@ function Mapa() {
 
 
   return (
-    <div>
+    
+    <>
+    
+    
+    <div className="mapa">
       <Map
         mapboxAccessToken={token}
         initialViewState={{
@@ -50,8 +57,9 @@ function Mapa() {
           longitude: lng,
         }}
         style={{
-          width: "100vw",
-          height: "90vh",
+          width: "95vw",
+          height: "80vh",
+          marginLeft: "40px",
         }}
         mapStyle="mapbox://styles/mapbox/satellite-streets-v12"
       >
@@ -63,11 +71,13 @@ function Mapa() {
         </Source>
 
         <Marker longitude={-97.8750935} latitude={18.9377715} anchor="bottom">
-          <img src="./marcador2.svg" />
+          <img src={ImagenIcon}  className="icono_Usuario"/>
         </Marker>
       </Map>
     </div>
+    </>
   );
+  
 }
 
 export default Mapa;

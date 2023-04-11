@@ -5,6 +5,8 @@ import { useTasks } from '../context/Consultas';
 import '../css/AlertasPagina.css'
 import Menu2 from './Menu2';
 import imgIcono from '../media/editar.png'
+import ImgPoli from '../media/patrulla.png'
+import ImgAmbu from '../media/ambulanciaIMG.png'
 
 function AlertasPagina() {
 
@@ -16,7 +18,7 @@ function AlertasPagina() {
   }, []);
 
   function renderMain() {
-    if (tasks.length === 0) return <h1>no hay alertas</h1>
+    if (tasks.length === 0) return <h1><br></br>No hay alertas</h1>
     return tasks.map(task => (
       <ListaDeAlertas task={task} key={task.id} />
     ))
@@ -26,11 +28,11 @@ function AlertasPagina() {
     <>
       <div className="icon">
         <ul>
-          <li><div className='ContenedorLi'><img src={imgIcono} className="imgIcono" /><p id='MensajeP'>Policia</p></div></li>
-          <li>Ambulanica</li>
-          <li>Atendido</li>
-          <li>Atendiendo</li>
-          <li>Sin atender</li>
+          <li><div className='ContenedorLi'><img src={ImgPoli} className="imgIcono" /><p id='MensajeP'>Policia</p></div></li>
+          <li><div className='ContenedorLi'><img src={ImgAmbu} className="imgIcono2" /><p id='MensajeP'>Ambulanica</p></div></li>
+          <li><div className='ContenedorLi'><div className='RV'></div><p id='MensajeP'>Atendido</p></div></li>
+          <li><div className='ContenedorLi'><div className='RA'></div><p id='MensajeP'>Atendiendo</p></div></li>
+          <li><div className='ContenedorLi'><div className='RB'></div><p id='MensajeP'>Sin atender</p></div></li>
         </ul>
       </div>
       <div className="contenedo">
@@ -45,8 +47,8 @@ function AlertasPagina() {
             <th className='usus'></th>
 
             <th className='nuA'>Atencion</th>
-            <th className='esta'>Estado</th>
             <th className='esta'>Tipo</th>
+            <th className='esta'> Estado </th>
             
 
           </tr>

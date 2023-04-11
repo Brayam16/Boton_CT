@@ -16,7 +16,7 @@ function PaginaEstablecimientos() {
   }, []);
 
   function renderMain() {
-    if (tasks.length === 0) return <h1><br></br>no hay Usuarios</h1>
+    if (tasks.length === 0) return <h1><br></br>No hay Establecimientos</h1>
     return tasks.map(task => (
       <ListaDeEstablecimientos task={task} user={task.id_Usuario} />
     ))
@@ -33,11 +33,13 @@ function PaginaEstablecimientos() {
           <tr>
             <th className='Id'>Identificador</th>
             <th className='name'>Nombre</th>
-            <th className='name'>Direccion</th>
+            <th className='Id'></th>
+            <th className='direccion'>Direccion</th>
             <th className='name'>	Horario</th>
             <th className='name'>Encargado</th>
-            <th className='name'></th>
-            <th className='name'></th>
+            <th className='Id'></th>
+            
+            
             
 
             

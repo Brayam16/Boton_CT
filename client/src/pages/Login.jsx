@@ -5,7 +5,8 @@ import axios from 'axios';
 import md5 from 'md5';
 import Cookies from 'universal-cookie';
 
-const baseUrl="http://localhost:3001/usuarios";
+
+const baseUrl="http://localhost:4000/monitorei";
 const cookies = new Cookies();
 
 class Login extends React.Component {
@@ -51,6 +52,7 @@ class Login extends React.Component {
     }
 
     componentDidMount() {
+        
         if(cookies.get('username')){
             window.location.href="./menu";
         }

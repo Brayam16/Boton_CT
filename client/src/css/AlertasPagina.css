@@ -27,8 +27,37 @@
 }
 .imgIcono{
     
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
+}
+.imgIcono2{
+    
+    width: 70px;
+    height: 45px;
+}
+.RB{
+    margin-top: 10px;
+    width: 25px;
+    height: 24px;
+    background: #FA3C2B;
+    border-radius: 100%;
+    
+}
+.RA{
+    margin-top: 10px;
+    width: 25px;
+    height: 24px;
+    background: #FF8500;
+    border-radius: 100%;
+    
+}
+.RV{
+    margin-top: 10px;
+    width: 25px;
+    height: 24px;
+    background: #FFB15D;
+    border-radius: 100%;
+    
 }
 .ContenedorLi{
     width: 200px;
@@ -36,6 +65,7 @@
     display: flex;
 }
 #MensajeP{
+    
     margin-top: 15px;
     margin-left: 15px;
 
@@ -48,14 +78,26 @@
 }
 
 .nuA{
+    font-style: normal;
+font-weight: 400;
+font-size: 15px;
+    color: rgba(0, 0, 0, 0.6);
     width: 124px;
 }
 
 .usus{
+    font-style: normal;
+font-weight: 400;
+font-size: 15px;
+    color: rgba(0, 0, 0, 0.6);
     width: 375px;
 }
 
 .esta{
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+    color: rgba(0, 0, 0, 0.6);
     width: 124px;
 }
 

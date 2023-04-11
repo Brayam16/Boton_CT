@@ -49,7 +49,8 @@ function ListaDeEstablecimientos({ task, user }) {
         setTask2({
           Nombre: task.Nombre,
           Direccion: task.Direccion,
-          Horario: task.Horario,
+          finalHorario: task.	finalHorario,
+          InicioHorario: task.InicioHorario,
           Encargado: task.Encargado,
           
         })
@@ -158,10 +159,10 @@ function ListaDeEstablecimientos({ task, user }) {
         <tbody>
           <tr className="lista">
            
-            <th className='Id'>{task.id_Establecimiento }</th>
+            <th className='nu'>{task.id_Establecimiento }</th>
             <th className='name'>{task.Nombre}</th>
-            <th className='name'>{task.Direccion}</th>
-            <th className='name'>{task.Horario}</th>
+            <th className='direccion'>{task.Direccion}</th>
+            <th className='name'>{task.InicioHorario+ " :"}{	" "+task.finalHorario}</th>
             <th className='name'>{task.Encargado}</th>
             
             

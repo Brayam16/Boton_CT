@@ -5,27 +5,21 @@ export const getAlertas = async(req, res) => {
     try{
         const [result] = await pool.query("SELECT * FROM emergencia ORDER BY id_Emergencia  ASC");
         res.json(result);
-
     }catch(error){
         return res.status(500).json({ message: error.message});
     }
-    
 }
 //Busqueda por id
 export const getAlerta = async(req, res) => {
     try{
         const [result] = await pool.query("SELECT * FROM emergencia WHERE 	id_Emergencia  = ?",[req.params.id] );
-
         if (result.length === 0)
             return res.status(404).json({ message: "Task not emergencia "});
-        
         res.json(result[0]);
-
     }catch(error){
         return res.status(500).json({message: error.message});
     }
 }
-
 //Creacion de nuevo emergencia
 export const createAlertas = async (req, res) => {
     try{

@@ -39,10 +39,7 @@ function Graficos() {
     }
     return (
         <>
-            <div className="contenedor-alerta">
-                <div className='alert'><div className='Sin-atender'></div><p>Emergencias</p></div>
-                <div className='alert'><div className='Atendiendo'></div><p>Emergencia Atendidas</p> </div>
-            </div>
+            
             <div className="Graficos" style={{ width: '100%', height: '500px' }}>
                 <div className="bar">
                     <Bar data={data} options={opciones} />

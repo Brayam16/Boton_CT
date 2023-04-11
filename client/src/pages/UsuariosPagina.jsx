@@ -30,7 +30,7 @@ function PaginaUsuarios() {
   }, []);
 
   function renderMain() {
-    if (tasks.length === 0) return <h1><br></br>no hay Usuarios</h1>
+    if (tasks.length === 0) return <h1><br></br>No hay Usuarios</h1>
     return tasks.map(task => (
       <ListaDeUsuarios task={task} user={task.id_Usuario} />
     ))

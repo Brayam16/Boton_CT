@@ -14,10 +14,8 @@ function FormularioAlta() {
     const [Establecimiento] = useState({
         Nombre: "",
         Direccion:"",
+        Horario: "",
         Encargado: "",
-        InicioHorario:"",
-        finalHorario:"",
-
     })
     const params = useParams();
     const navigate = useNavigate();
@@ -28,7 +26,9 @@ function FormularioAlta() {
                 enableReinitialize={true}
                 onSubmit={async (values, actions) => {
                     console.log(values);
-                    
+                    const capturaSubmit= (data) => {
+                        console.log(data)
+                        };
 
                     await createEstablecimiento(values);
                     actions.resetForm();
@@ -51,7 +51,7 @@ function FormularioAlta() {
                                     <input type="text" name="Nombre" autoComplete='off'
                                         onChange={handleChange}
                                         value={values.Nombre}
-                                        required minlength="3"  maxlength="20"/>
+                                        required />
                                         
                                 </div>
                                 <div className="lu">
@@ -59,7 +59,7 @@ function FormularioAlta() {
                                     <input type="text" name="Direccion" autoComplete='off'
                                         onChange={handleChange}
                                         value={values.Direccion}
-                                        required minlength="30" maxlength="70"/>
+                                        required/>
                                 </div>
                                 
                                   
@@ -70,37 +70,17 @@ function FormularioAlta() {
 
                                 <div className="lu">
                                     <label className="nomm">Horario</label>
-                                    <br></br>
-                                    <br></br>
-                                    <div className='section1'>
-                                    <label className="num">Inicio</label>
-                                    <br></br>
-                                    <input type="time" name="InicioHorario" id='inputnum' autoComplete='off'
+                                    <input type="text" name="Horario" autoComplete='off'
                                         onChange={handleChange}
-                                        value={values.InicioHorario}
-                                        required
-                                        />
-                                        
-                                    </div>
-                                    <br></br>
-                                    <div className='section1'>
-                                        <label className="num">Final</label>
-                                        <br></br>
-                                    <input type="time" name="finalHorario" id='inputnum' autoComplete='off'
-                                        onChange={handleChange}
-                                        value={values.finalHorario}
-                                        required
-                                        />
-                                        </div>
-
-                                    
+                                        value={values.Horario}
+                                        required/>
                                 </div>
                                 <div className="lu">
                                     <label className="nomm">Encargado</label>
                                     <input type="text" name="Encargado" autoComplete='off'
                                         onChange={handleChange}
                                         value={values.Encargado}
-                                        required minlength="10" maxlength="20"/>
+                                        required/>
                                 </div>
 
                                 

@@ -5,6 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Menu2 from './Menu2';
 import '../css/FormularioAlta.css';
+import iconoCon from '../media/ojo.png'
 function FormularioAlta() {
     const { createPolicia, tasks } = useTasks();
     const [user] = useState({
@@ -15,12 +16,29 @@ function FormularioAlta() {
         PasswordPo: "",
         CorreoPo:"",
         CurpPo: "",
-        TurnoPo: "",
+        TurnoPo: "Matutino",
         Numero_Patrulla: "",
     })
     const params = useParams();
     const navigate = useNavigate();
+    var eye = document.getElementById('Eye');
+    var input = document.getElementById('InputContra');
+
+    const MostrarContra = async () => {
+        console.log("Funciono");
+        if(input.type=="password"){
+	input.type="text"
+	eye.style.opacity=0.8
+	}else{
+		input.type="password"
+		eye.style.opacity=0.2
+	}
+        
+      };
+
+
     return (
+        <>
         <div className="contenedorR">
             <Formik
                 initialValues={user}
@@ -49,6 +67,7 @@ function FormularioAlta() {
                                     <input type="text" name="NombresPo" autoComplete='off'
                                         onChange={handleChange}
                                         value={values.NombresPo}
+                                        required minlength="3" maxlength="20"
                                     />
                                 </div>
                                 <div className="lu">
@@ -56,6 +75,7 @@ function FormularioAlta() {
                                     <input type="text" name="ApellidosPo" autoComplete='off'
                                         onChange={handleChange}
                                         value={values.ApellidosPo}
+                                        required minlength="10" maxlength="20"
                                     />
                                 </div>
 
@@ -64,22 +84,31 @@ function FormularioAlta() {
                                     <input type="number" name="EdadPo" autoComplete='off'
                                         onChange={handleChange}
                                         value={values.EdadPo}
+                                        required min="18" max="70"
                                     />
                                 </div>
 
                                 <div className="lu">
                                     <label className="nomm">Telefono</label>
-                                    <input type="text" name="TelefonoPo" autoComplete='off'
+                                    <input type="tel" pattern="^\d{10}$"name="TelefonoPo" autoComplete='off'
                                         onChange={handleChange}
                                         value={values.TelefonoPo}
+                                        required 
                                     />
                                 </div>
                                 <div className="lu">
                                     <label className="nomm">Contraseña</label>
-                                    <input type="text" name="PasswordPo" autoComplete='off'
+                                    <input type="password" name="PasswordPo" id='InputContra' autoComplete='off'
                                         onChange={handleChange}
                                         value={values.PasswordPo}
+                                        required  minlength="12" maxlength="20"
                                     />
+                                    <button className="btnContra" onClick={() => MostrarContra()}>
+                                    <img src={iconoCon} className="ImgContra" id='Eye' />
+
+                                    </button>
+                                    
+                                    
                                 </div>
                                 
 
@@ -93,9 +122,10 @@ function FormularioAlta() {
 
                                 <div className="lu">
                                     <label className="nomm">Correo</label>
-                                    <input type="text" name="CorreoPo" autoComplete='off'
+                                    <input type="email" name="CorreoPo" autoComplete='off'
                                         onChange={handleChange}
                                         value={values.CorreoPo}
+                                        required
                                     />
                                 </div>
                                 <div className="lu">
@@ -103,14 +133,17 @@ function FormularioAlta() {
                                     <input type="text" name="CurpPo" autoComplete='off'
                                         onChange={handleChange}
                                         value={values.CurpPo}
+                                        required  minlength="18" maxlength="18" 
                                     />
                                 </div>
                                 <div className="lu">
                                     <label className="nomm">Turno</label>
-                                    <input type="text" name="TurnoPo" autoComplete='off'
-                                        onChange={handleChange}
-                                        value={values.TurnoPo}
-                                    />
+                                    <br></br>
+                                    <select id="select1" name="TurnoPo"  value={values.TurnoPo} onChange={handleChange} required>
+                                            <option value="Matutino">Matutino </option>
+                                            <option value="Vespertino">Vespertino</option>
+                                            
+                                    </select>
                                 </div>
 
                                 <div className="lu">
@@ -118,6 +151,7 @@ function FormularioAlta() {
                                     <input type="password" name="Numero_Patrulla" autoComplete='off'
                                         onChange={handleChange}
                                         value={values.Numero_Patrulla}
+                                        required min="10" max="9999"
                                     />
                                 </div>
                                
@@ -139,8 +173,11 @@ function FormularioAlta() {
             </Formik>
             
         </div>
+        </>
     )
+    
 }
+
 
 export default FormularioAlta;
 

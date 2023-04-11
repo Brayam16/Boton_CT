@@ -9,7 +9,7 @@ import imgBorrar from "../media/boton-eliminar.png";
 import imgEditar from "../media/editar.png";
 import '../css/Modal_LP.css';
 
-function ListaDePolicias({ task, user }) {
+function  ListaDePolicias({ task, user }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
