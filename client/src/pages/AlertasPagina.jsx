@@ -3,10 +3,15 @@ import { useEffect } from 'react'
 import ListaDeAlertas from '../components/ListaDeAlertas';/////
 import { useTasks } from '../context/Consultas';
 import '../css/AlertasPagina.css'
-import Menu2 from './Menu2';
+import Menu2 from './Menu2Alerta';
 import imgIcono from '../media/editar.png'
 import ImgPoli from '../media/patrulla.png'
 import ImgAmbu from '../media/ambulanciaIMG.png'
+function Recarga(){
+  setInterval(() => {
+    window.location.href = "/alerta";
+  }, 30000)
+}
 
 function AlertasPagina() {
 
@@ -53,7 +58,10 @@ function AlertasPagina() {
 
           </tr>
         </thead>
+        <div id="Tabla_Scroll">
         {renderMain()}
+        </div>
+        {Recarga()}
       </div>
       <Menu2></Menu2>
       

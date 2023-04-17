@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Cookies from "universal-cookie";
 import "../css/Menu.css";
+import usuario from '../media/user.png';
 
 import PaginaEmergencia12 from "./NotificacionesAlertas";
 import { Toaster, toast } from "react-hot-toast";
@@ -91,12 +92,12 @@ class Menu extends React.Component {
                     className="Boton_Mostrar"
                     onClick={() => OpcionesDelMenu()}
                   >
-                    
+                    <img src={usuario} className="iconoUser" />
                   </button>
                
               </div>
 
-              <button id="CerrarSesion" onClick={() => this.cerrarSesion()}>Cerrar Sesion</button>
+              
             </li>
           </ul>
         </div>

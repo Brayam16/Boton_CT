@@ -7,6 +7,7 @@ import TaskForm from './pages/TaskForm'
 import Error404 from './pages/Error404'
 import Graficos from './pages/Graficos'
 import Mapa from './pages/Mapa'
+import Mapa2 from './pages/Mapa2';
 import FormularioAltaP from './pages/FormularioAltaP'
 import FormularioAltaA from './pages/FormularioAltaA'
 import FormularioAltaE from './pages/FormularioAltaE'
@@ -40,6 +41,7 @@ export default function App() {
           <Route exact path="/menu" element={<Menu/>}/>
           <Route exact path="/menu2" element={<Menu2/>}/>
           <Route exact path='/mapa' element={<Mapa />} />
+          <Route exact path='/mapa2' element={<Mapa2 />} />
           <Route exact path='/alerta' element={<AlertasPagina />} />
           <Route exact path='/alta' element={<OpcionesA />} />
           <Route exact path='/alta_policia' element={<FormularioAltaP />} />

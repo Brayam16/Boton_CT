@@ -24,7 +24,7 @@ function ListaDeAlertas({ task, user }) {
   const [isOpen5, setIsOpen5] = useState(false);
   const [isOpen6, setIsOpen6] = useState(false);
   const Eliminar = async () => {
-    deleteEmergencias(task.id_Usuario_E);
+    deleteEmergencias(task.id_Emergencia);
     window.location.href = "/alerta";
   };
 
@@ -71,27 +71,26 @@ function ListaDeAlertas({ task, user }) {
 
     setIsOpen2(true, IdEmergencia);
   };
-  function AgregacionPolicia(IdEmergencia, IdAlerta) {
+  function AgregacionPolicia(IdEmergencia) {
     var Idpolicia = document.getElementById("listapolicia").value;
     var Objeto_Emergencia = getEmergenciasDatos(IdEmergencia);
     Objeto_Emergencia.id_Policia = Idpolicia;
     Objeto_Emergencia.Visto='visto';
-    var ObjetoAlertas = getAlertas(IdAlerta);
+    Objeto_Emergencia.EstadoE=2
     updateEmergencias(IdEmergencia, Objeto_Emergencia);
-    ObjetoAlertas.EstadoE = 2;
-    updateAlertas(IdAlerta, ObjetoAlertas);
     window.location.href = "/alerta";
+    
   }
-  function AgregacionAmbulancia(IdEmergencia, IdAlerta) {
+  function AgregacionAmbulancia(IdEmergencia) {
     var Idambulancia = document.getElementById("listaambulancia").value;
     var Objeto_Emergencia = getEmergenciasDatos(IdEmergencia);
     Objeto_Emergencia.id_Ambulacia = Idambulancia;
     Objeto_Emergencia.Visto='visto';
-    var ObjetoAlertas = getAlertas(IdAlerta);
+    Objeto_Emergencia.EstadoE=2
     updateEmergencias(IdEmergencia, Objeto_Emergencia);
-    ObjetoAlertas.EstadoE = 2;
-    updateAlertas(IdAlerta, ObjetoAlertas);
-    window.location.href = "/alerta";
+    
+    
+    
   }
   const Modal3 = async () => {
     if (task.id_Policia == 16 && task.id_Ambulacia == 16) {
@@ -103,7 +102,7 @@ function ListaDeAlertas({ task, user }) {
       setIsOpen6(true);
     } else {
       if (task.id_Ambulacia != 16) {
-        navigate(`/editAlerta/${task.id_Usuario_E}`);
+        navigate(`/editAlerta/${task.id_Emergencia}`);
         console.log("Eres una Ambulancias");
         setIsOpen4(true);
       }
@@ -156,7 +155,7 @@ function ListaDeAlertas({ task, user }) {
           <button
             className="BtnContinuar"
             onClick={() =>
-              AgregacionPolicia(task.id_Usuario_E, task.id_Emergencia)
+              AgregacionPolicia(task.id_Emergencia)
             }
           >
             continuar
@@ -196,7 +195,7 @@ function ListaDeAlertas({ task, user }) {
           <button
             className="BtnContinuar"
             onClick={() =>
-              AgregacionAmbulancia(task.id_Usuario_E, task.id_Emergencia)
+              AgregacionAmbulancia(task.id_Emergencia)
             }
           >
             continuar
@@ -264,7 +263,7 @@ function ListaDeAlertas({ task, user }) {
                       name="id_Usuario_E"
                       placeholder="Escribe el titulo"
                       onChange={handleChange}
-                      value={values.id_Usuario_E}
+                      value={values.id_Emergencia}
                       disabled
                     />
                     <div className="Espacio"></div>
@@ -398,7 +397,7 @@ function ListaDeAlertas({ task, user }) {
                       name="id_Usuario_E"
                       placeholder="Escribe el titulo"
                       onChange={handleChange}
-                      value={values.id_Usuario_E}
+                      value={values.id_Emergencia}
                       disabled
                     />
                     <div className="Espacio"></div>
@@ -552,7 +551,7 @@ function ListaDeAlertas({ task, user }) {
             <td className="btnimg">
               <button
                 className="btnimg"
-                onClick={() => Modal3(`/editAlerta/${task.id_Usuario_E}`)}
+                onClick={() => Modal3(`/editAlerta/${task.id_Emergencia}`)}
               >
                 <img src={imgEditar} className="img2" />
               </button>
@@ -560,7 +559,7 @@ function ListaDeAlertas({ task, user }) {
             <td className="btnimg">
               <button
                 className="btnimg"
-                onClick={() => Eliminar(task.id_Usuario_E)}
+                onClick={() => Eliminar(task.id_Emergencia)}
               >
                 <img src={imgBorrar} className="img1" />
               </button>

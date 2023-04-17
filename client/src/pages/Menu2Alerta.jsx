@@ -6,35 +6,33 @@ import {
   Link,
   NavLink,
 } from "react-router-dom";
-import { Toaster, toast } from "react-hot-toast";
 import Cookies from "universal-cookie";
 import "../css/Menu.css";
-import Mapa from "./Mapa2";
+
 import PaginaEmergencia12 from "./NotificacionesAlertas";
-import usuario from '../media/user.png';
-
+import { Toaster, toast } from "react-hot-toast";
 import "../css/Ventana.css";
+import usuario from '../media/user.png';
 var Contador=0;
-
 const cookies = new Cookies();
 
+
 function OpcionesDelMenu() {
-  Contador+=1;
-  if(Contador==1){
-    document.getElementById("CerrarSesion").style.visibility = "visible";
-    console.log("Se ve")
-
-  }else{
-    document.getElementById("CerrarSesion").style.visibility = "hidden";
-    Contador=0;
-    console.log("No se ve")
-
+    Contador+=1;
+    if(Contador==1){
+      document.getElementById("CerrarSesion").style.visibility = "visible";
+      console.log("Se ve")
+  
+    }else{
+      document.getElementById("CerrarSesion").style.visibility = "hidden";
+      Contador=0;
+      console.log("No se ve")
+  
+    }
+    
+    console.log(Contador);
+    
   }
-  
-  console.log(Contador);
-  
-}
-
 class Menu extends React.Component {
   cerrarSesion = () => {
     cookies.remove("id", { path: "/" });
@@ -54,9 +52,7 @@ class Menu extends React.Component {
   render() {
     return (
       <>
-        <PaginaEmergencia12></PaginaEmergencia12>
-
-        <Mapa />
+      <PaginaEmergencia12></PaginaEmergencia12>
         <div className="">
           <ul className="listaul1">
             <li>
@@ -101,11 +97,11 @@ class Menu extends React.Component {
                
               </div>
 
-              <button id="CerrarSesion">Cerrar Sesion</button>
+              <button id="CerrarSesion" onClick={() => this.cerrarSesion()}>Cerrar Sesion</button>
             </li>
           </ul>
         </div>
-
+        
         <Toaster position="top-right" reverseOrder={false} />
       </>
     );
