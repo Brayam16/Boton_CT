@@ -88,7 +88,7 @@ function ListaDeAlertas({ task, user }) {
     Objeto_Emergencia.Visto='visto';
     Objeto_Emergencia.EstadoE=2
     updateEmergencias(IdEmergencia, Objeto_Emergencia);
-    
+    window.location.href = "/alerta";
     
     
   }

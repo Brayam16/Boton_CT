@@ -21,10 +21,10 @@ function Mapa() {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v12",
-      center: [lng, lat],
+      center: [-97.7204664, 18.8642082],
       zoom: zoom,
     });
-    const start = [-97.54969132813686, 18.84235829539653];
+    const start = [-97.7204664, 18.8642082];
     ///////////////////////////////////////////
     //////////////////////////////////////////
     async function getRoute(end) {

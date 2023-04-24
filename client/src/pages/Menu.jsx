@@ -101,7 +101,7 @@ class Menu extends React.Component {
                
               </div>
 
-              <button id="CerrarSesion">Cerrar Sesion</button>
+              <button id="CerrarSesion" onClick={() => cerrarSesion()}>Cerrar Sesion</button>
             </li>
           </ul>
         </div>
